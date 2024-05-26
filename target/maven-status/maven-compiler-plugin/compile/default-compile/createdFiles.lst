@@ -1,0 +1,10 @@
+com\mycompany\mavenproject1web\resources\login.class
+com\mycompany\mavenproject1web\resources\RegisterServlets.class
+com\mycompany\mavenproject1web\resources\StudentDAO.class
+com\mycompany\mavenproject1web\JakartaRestConfiguration.class
+com\mycompany\mavenproject1web\resources\EditServlet.class
+com\mycompany\mavenproject1web\resources\StudentServlet.class
+com\mycompany\mavenproject1web\resources\DatabaseUtil.class
+com\mycompany\mavenproject1web\resources\Student.class
+com\mycompany\mavenproject1web\resources\UpdateServlet.class
+com\mycompany\mavenproject1web\resources\JakartaEE10Resource.class

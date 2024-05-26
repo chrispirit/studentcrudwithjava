@@ -1,0 +1,268 @@
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+.add{
+    padding-left: 5%;
+    padding-top: 8px;
+    margin-bottom: -2%;
+    margin-top: 2%;
+}
+  
+.btn-add{
+    color: white;
+    width: fit-content;
+    background-color: rgb(23, 153, 3);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    text-align: center;
+}
+
+.btn-add:hover{
+    background-color: rgb(17, 98, 4);
+}
+  
+table tr:nth-child(even){background-color: #fcf9f9;}
+  
+table tr:hover {background-color: #eeebeb96;}
+  
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #b9b6ba81;
+    color: rgb(7, 7, 7);
+  }
+
+th{
+    text-align: center;
+    background-color: rgb(203, 213, 221);
+}
+
+body{
+    text-align: center;
+}
+
+.head {
+    background: linear-gradient(336deg, #0d7258, #850fb4, #a9b40f);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 6s ease infinite;
+    -moz-animation: AnimationName 6s ease infinite;
+    -o-animation: AnimationName 6s ease infinite;
+    animation: AnimationName 6s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:24% 0%}
+    50%{background-position:77% 100%}
+    100%{background-position:24% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:24% 0%}
+    50%{background-position:77% 100%}
+    100%{background-position:24% 0%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:24% 0%}
+    50%{background-position:77% 100%}
+    100%{background-position:24% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:24% 0%}
+    50%{background-position:77% 100%}
+    100%{background-position:24% 0%}
+}
+
+.table{
+    margin-top: 3%;
+}
+  
+table {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+}
+
+.head{
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.head p{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.btn-update{
+    flex: 50%;
+    color: white;
+    background-color: orange;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px;
+    text-align: center;
+}
+
+
+.btn-update:hover{
+    background-color: rgb(217, 143, 4);
+}
+
+
+.btn-delete:hover{
+    background-color: rgb(217, 4, 4);
+}
+
+.btn-delete{
+    cursor: pointer;
+    color: white;
+    background-color: red;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+#action{
+    
+    display: flex;
+    gap: 2%;
+    justify-content: space-between;
+}
+
+#action div{
+    text-decoration: none;
+    width: 50%;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 0px 20px 0px 20px;
+    border: 1px solid #888;
+    width: 60%;
+    border-radius: 10px;
+    height: 55%;
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+ 
+  /* The Close Button */
+  .close1 {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close1:hover,
+  .close1:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+  .modal p{
+    margin-top: 2%;
+    font-size: 18px;
+    font-weight: 700;
+    color: #7703fc;
+  }
+
+  form{
+    margin: auto;
+    padding: 0% 10% 0% 10%;
+  }
+
+  .inputbox{
+    text-align: justify;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    margin-top: 5%;
+    
+  }
+
+  .inputbox label{
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .inputbox input{
+    width: 96%;
+    outline: none;
+    border: 1px solid rgb(231, 229, 229);
+    border-radius: 10px;
+    padding: 10px;
+
+  }
+
+  .inputbox select{
+    border: 1px solid rgb(231, 229, 229);
+    border-radius: 10px;
+    outline: none;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .btn{
+    width: 100%;
+    background-color: #7703fc;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  .btn:hover{
+    background-color: #6203cf;
+  }
