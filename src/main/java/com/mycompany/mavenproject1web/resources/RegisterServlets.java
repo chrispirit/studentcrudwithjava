@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -35,6 +36,7 @@ public class RegisterServlets extends HttpServlet {
         String password = request.getParameter("password");
         String gender = request.getParameter("gender");
         
+        
         if (username == null || email == null) {
             out.println("One of the parameters is missing. Please fill out the form completely.");
             return;
@@ -45,19 +47,28 @@ public class RegisterServlets extends HttpServlet {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/studentdb","root","");
-            PreparedStatement ps = con.prepareStatement("INSERT INTO student (name, email, password, gender) VALUES(?, ?, ?, ?)");
-            ps.setString(1, username);
-            ps.setString(2, email);
-            ps.setString(3, password);
-            ps.setString(4, gender);
+            PreparedStatement ve = con.prepareStatement("SELECT * from student where email = ?");
+            ve.setString(1, email);
+            ResultSet res = ve.executeQuery();
+            if (res.next()){
+                out.println("User already exists");
+            } else {
+                PreparedStatement ps = con.prepareStatement("INSERT INTO student (name, email, password, gender) VALUES(?, ?, ?, ?)");
+                ps.setString(1, username);
+                ps.setString(2, email);
+                ps.setString(3, password);
+                ps.setString(4, gender);
             
 
-            int result = ps.executeUpdate();
-            if(result > 0){
-                response.sendRedirect("index.jsp");
-            }else {
-                out.println("Error in registration. Please try again!");
+                int result = ps.executeUpdate();
+            
+                if(result > 0){
+                    response.sendRedirect("view.html");
+                }else {
+                    out.println("Error in registration. Please try again!");
+                }
             }
+            
             con.close();
         } catch (Exception e){
             e.printStackTrace();

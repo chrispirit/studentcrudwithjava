@@ -28,9 +28,7 @@ public class UpdateServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         int id = Integer.parseInt(request.getParameter("id"));
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String username = request.getParameter("name");
         String gender = request.getParameter("gender");
         
         PrintWriter out = response.getWriter();
@@ -42,19 +40,17 @@ public class UpdateServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
              con = DriverManager.getConnection("jdbc:mysql://localhost/studentdb", "root", "");
-             String sql = "UPDATE student SET name = ?, email = ?, password = ?, gender = ? WHERE id = ?";
+             String sql = "UPDATE student SET name = ?, gender = ? WHERE id = ?";
                 ps = con.prepareStatement(sql);
                 
                 ps.setString(1, username);
-                ps.setString(2, email);
-                ps.setString(3, password);
-                ps.setString(4, gender);
-                ps.setInt(5, id);
+                ps.setString(2, gender);
+                ps.setInt(3, id);
                 
                 int result = ps.executeUpdate();
 
                 if (result > 0){
-                    response.sendRedirect("index.jsp");
+                    response.sendRedirect("view.html");
                 }else {
                     out.println("Error in updating please try again!");
                 }

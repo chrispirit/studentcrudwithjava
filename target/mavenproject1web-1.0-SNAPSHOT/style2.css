@@ -129,6 +129,7 @@ table {
 }
 
 .btn-delete{
+    border: none;
     cursor: pointer;
     color: white;
     background-color: red;
@@ -265,4 +266,12 @@ table {
 
   .btn:hover{
     background-color: #6203cf;
+  }
+  
+  .btn-delete .del{
+      border: none;
+      outline: none;
+      background-color: transparent;
+      color: white;
+      font-size: 14px;
   }

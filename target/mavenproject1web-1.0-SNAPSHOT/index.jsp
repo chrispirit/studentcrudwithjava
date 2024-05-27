@@ -37,27 +37,28 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="student" items="${listStudent}">
+                    <c:forEach var="student" items="${allStudents}">
                     <tr>
                         <td><c:out value="${student.id}"/></td> 
-                        <td><c:out value="${student.name}"/></td>
+                        <td><c:out value="${student.username}"/></td>
                         <td><c:out value="${student.email}"/></td>
                         <td><c:out value="${student.gender}"/></td>
                         <td>
                             <div id="action">
-                                <div id="myBtn" class="btn-update" data-id="${student.id}"
+                                <div class="btn-update myBtn" data-id="${student.id}"
                                      data-gender="${student.gender}"
                                      data-email="${student.email}"
-                                     data-name="${student.name}">
+                                     data-name="${student.username}">
                                         Update
                                     </div>
                                     <div class="btn-delete">
-                                        <form action="/StudentServlet/delete" method="post">
+                                        <form action="delete" method="post">
                                             <input type="hidden" name="id" value="${student.id}">
-                                            <button type="submit">Delete</button>
+                                            <button class="btn-delete" type="submit">Delete</button>
                                         </form>
                                     </div>
                             </div>
+                                            
                         </td>
                     </tr>
                     </c:forEach>
@@ -77,18 +78,18 @@
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <p>Update Student</p>
-                <form action="/update" method="post">
+                <form action="update" method="post">
                     
-                    <input type="hidden" name="id" value="${student.id}"/>
+                    <input type="hidden" name="id" id="studentId"/>
                     <div class="inputbox">
                         <label>Name</label>
-                        <input type="text" name="name" required placeholder="Change your name"/>
+                        <input type="text" name="name" id="studentName" required placeholder="Change your name"/>
                     </div>
                     <div class="inputbox">
                         <label>Gender</label>
-                        <select required name="gender">
-                            <option>Male</option>
-                            <option>Female</option>
+                        <select required name="gender" id="studentGender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
                     <button class="btn">Modify</button>
@@ -131,35 +132,52 @@
         
         </div>
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
-    // Get the modal
+                // Get the modal
                 var modal = document.getElementById("myModal");
                 var modala = document.getElementById("myModala");
 
     // Get the button that opens the modal
-                var btn = document.getElementById("myBtn");
+                
+                var btn = document.getElementsByClassName("myBtn");
                 var btna = document.getElementById("myBtna");
+                
+                console.log("Found ", btn.length, " btn of same class");
+                
+                for(var i = 0; i < btn.length; i++){
+                    console.log("btn modal click initialized");
+                    btn[i].addEventListener('click', function(){
+                        
+                        var id = this.getAttribute('data-id');
+                        var name = this.getAttribute('data-name');
+                        var gender = this.getAttribute('data-gender');
+
+                        document.getElementById('studentId').value = id;
+                        document.getElementById('studentName').value = name;
+                        document.getElementById('studentGender').value = gender;
+                        
+                        console.log("click btn ", i);
+                        modal.style.display = "block";
+                        console.log("open modal");
+                    })
+                }
+                  
+                if (btna) {
+                    btna.onclick = function() {
+                        modala.style.display = "block";
+                    };
+                }                          
+                
+                
+            document.addEventListener("DOMContentLoaded", function() {
+
 
     // Get the <span> element that closes the modal
                 var span = document.getElementsByClassName("close")[0];
                 var spana = document.getElementsByClassName("close1")[0];
 
-    // When the user clicks the button, open the modal 
-                if (btn) {
-                    btn.onclick = function() {
-                        modal.style.display = "block";
-                    };
-                }
-
-                // Null check for btna
-                if (btna) {
-                    btna.onclick = function() {
-                        modala.style.display = "block";
-                    };
-                }
-
                 // When the user clicks on <span> (x), close the modal
                 // Null check for span
+                
                 if (span) {
                     span.onclick = function() {
                         modal.style.display = "none";
