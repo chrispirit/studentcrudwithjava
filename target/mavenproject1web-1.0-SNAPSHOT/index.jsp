@@ -86,6 +86,10 @@
                         <input type="text" name="name" id="studentName" required placeholder="Change your name"/>
                     </div>
                     <div class="inputbox">
+                        <label>Email</label>
+                        <input type="email" name="email" id = "studentEmail" required placeholder="Enter your email"/>
+                    </div>
+                    <div class="inputbox">
                         <label>Gender</label>
                         <select required name="gender" id="studentGender">
                             <option value="Male">Male</option>
@@ -149,10 +153,13 @@
                         
                         var id = this.getAttribute('data-id');
                         var name = this.getAttribute('data-name');
+                        var email = this.getAttribute('data-email');
                         var gender = this.getAttribute('data-gender');
+                        
 
                         document.getElementById('studentId').value = id;
                         document.getElementById('studentName').value = name;
+                        document.getElementById('studentEmail').value = email;
                         document.getElementById('studentGender').value = gender;
                         
                         console.log("click btn ", i);

@@ -30,6 +30,7 @@ public class UpdateServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String username = request.getParameter("name");
         String gender = request.getParameter("gender");
+        String email = request.getParameter("email");
         
         PrintWriter out = response.getWriter();
 
@@ -40,12 +41,13 @@ public class UpdateServlet extends HttpServlet {
         try {
             Class.forName("com.mysql.jdbc.Driver");
              con = DriverManager.getConnection("jdbc:mysql://localhost/studentdb", "root", "");
-             String sql = "UPDATE student SET name = ?, gender = ? WHERE id = ?";
+             String sql = "UPDATE student SET name = ?, gender = ?, email= ? WHERE id = ?";
                 ps = con.prepareStatement(sql);
                 
                 ps.setString(1, username);
                 ps.setString(2, gender);
-                ps.setInt(3, id);
+                ps.setString(3, email);
+                ps.setInt(4, id);
                 
                 int result = ps.executeUpdate();
 
